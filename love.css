@@ -86,3 +86,23 @@ html, body {
     opacity: 0;
   }
 }
+/* 🌸 Rotating Flowers */
+.flower {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-image: url('https://www.pikpng.com/pngl/b/292-2928559_free-yellow-flower-clipart-cute-sunflower-clipart-png.png'); /* A cute flower PNG */
+  background-size: cover;
+  animation: rotateFlower 20s linear infinite;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+@keyframes rotateFlower {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
