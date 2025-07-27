@@ -15,20 +15,22 @@ body {
   max-width: 90%;
   width: 700px;
   margin: 5vh auto;
-  padding: 5vw;
+  padding: 40px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
   color: #d6336c;
   font-size: 1.2rem;
   line-height: 1.8;
+  position: relative;
+  z-index: 1;
 }
 
 .typed-text {
   white-space: pre-wrap;
   border-right: 3px solid #d6336c;
   animation: blink 0.8s infinite;
-  min-height: 300px;
+  min-height: 200px;
 }
 
 @keyframes blink {
@@ -66,21 +68,4 @@ body {
   top: 0;
 }
 
-@keyframes floatHearts {
-  0% {
-    transform: translateY(0) rotate(45deg) scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-100vh) rotate(45deg) scale(1.5);
-    opacity: 0;
-  }
-}
-
-/* Responsive Font Sizes */
-@media (max-width: 600px) {
-  .letter-container {
-    padding: 15px;
-    font-size: 1rem;
-  }
-}
+@keyframes floatHearts
