@@ -11,29 +11,29 @@ body {
   background-size: cover;
   font-family: 'Courier New', Courier, monospace;
   overflow-x: hidden;
-  padding: 20px;
+  padding: 10px;
 }
 
 .letter-container {
-  max-width: 90%;
-  width: 700px;
+  width: 100%;
+  max-width: 500px;
   margin: 5vh auto;
-  padding: 40px;
+  padding: 20px;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
   color: #d6336c;
-  font-size: 1.2rem;
-  line-height: 1.8;
+  font-size: 1rem;
+  line-height: 1.6;
   position: relative;
   z-index: 1;
 }
 
 .typed-text {
   white-space: pre-wrap;
-  border-right: 3px solid #d6336c;
+  border-right: 2px solid #d6336c;
   animation: blink 0.8s infinite;
-  min-height: 200px;
+  min-height: 120px;
 }
 
 @keyframes blink {
@@ -41,13 +41,14 @@ body {
   50% { border-color: #d6336c; }
 }
 
+/* Floating Hearts */
 .heart {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   background: red;
   transform: rotate(45deg);
-  animation: floatHearts 8s infinite;
+  animation: floatHearts 6s infinite;
   z-index: 0;
 }
 
@@ -55,19 +56,19 @@ body {
 .heart::after {
   content: "";
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 14px;
+  height: 14px;
   background: red;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -10px;
+  top: -7px;
   left: 0;
 }
 
 .heart::after {
-  left: -10px;
+  left: -7px;
   top: 0;
 }
 
@@ -77,51 +78,72 @@ body {
     opacity: 1;
   }
   100% {
-    transform: translateY(-100vh) rotate(45deg) scale(1.5);
+    transform: translateY(-100vh) rotate(45deg) scale(1.4);
     opacity: 0;
   }
 }
 
-/* --- Responsive Styles --- */
-@media (max-width: 768px) {
+/* Tablet and Small Desktop Enhancements */
+@media (min-width: 600px) {
   .letter-container {
-    padding: 25px;
-    font-size: 1.05rem;
-    line-height: 1.6;
+    padding: 30px;
+    font-size: 1.1rem;
+    line-height: 1.7;
   }
 
   .typed-text {
-    min-height: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .letter-container {
-    padding: 15px;
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  .typed-text {
-    min-height: 120px;
+    min-height: 160px;
   }
 
   .heart {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
   }
 
   .heart::before,
   .heart::after {
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
   }
 
   .heart::before {
-    top: -7px;
+    top: -9px;
   }
 
   .heart::after {
-    left: -7px;
+    left: -9px;
+  }
+}
+
+/* Desktop Enhancements */
+@media (min-width: 900px) {
+  .letter-container {
+    padding: 40px;
+    font-size: 1.2rem;
+    line-height: 1.8;
+    border-radius: 20px;
+  }
+
+  .typed-text {
+    min-height: 200px;
+  }
+
+  .heart {
+    width: 20px;
+    height: 20px;
+  }
+
+  .heart::before,
+  .heart::after {
+    width: 20px;
+    height: 20px;
+  }
+
+  .heart::before {
+    top: -10px;
+  }
+
+  .heart::after {
+    left: -10px;
   }
 }
