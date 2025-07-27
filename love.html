@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Love Letter for Baby</title>
+  <title>Love Letter for my baby Chae</title>
   <link rel="stylesheet" href="love.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
   </div>
 
   <script>
-    const message = `HIII MY BABYYYY!!!!
+    const message =`HIII MY BABYYYY!!!!
 this might seem a bit unusual compared to the handwritten ones that I have sent you, I'm sorry I couldn't give you anything this month for our monthsary but instead of just sitting and saying oh sorry I don't have anything for you today, I made this letter for you.
 
 I know we've been having some rough days and slow ones too but I'd rather have those than not having you at all. I love you with all my heart babyy and I'll continue to do so as long as I breath(so corny but yes). I hope the coming months will be much nicer to us, no more of those stuff testing your patience for some reason on some random days. I hope you will still continue to love me despite it all, rough days and nights, or misunderstandings and arguments. I hope you will stay with me. 
@@ -43,6 +43,16 @@ I love you so much baby, I can't wait to go back and cuddle all day long with yo
       heart.style.transform = `scale(${0.5 + Math.random()}) rotate(45deg)`;
       document.body.appendChild(heart);
     }
+    for (let i = 0; i < 60; i++) {
+  let flower = document.createElement('div');
+  flower.classList.add('flower');
+  flower.style.left = Math.random() * 100 + "vw";
+  flower.style.top = Math.random() * 100 + "vh";
+  flower.style.transform = `rotate(${Math.random() * 360}deg) scale(${0.5 + Math.random()})`;
+  flower.style.opacity = 0.3 + Math.random() * 0.5;
+  flower.style.animationDuration = (20 + Math.random() * 20) + "s";
+  document.body.appendChild(flower);
+}
   </script>
 
 </body>
