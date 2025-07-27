@@ -9,191 +9,82 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: #ffe6ec;
-  margin: 0;
-  font-family: sans-serif;
-}
-
-.text1 {
+  min-height: 100vh;
+  background: #ffffff;
+  font-family: 'Arial', sans-serif;
   color: #e06c9f;
-  font-family: sans-serif;
+  padding: 20px;
   text-align: center;
-  margin-bottom: 20px;
 }
 
-.envelope {
-  position: relative;
-  cursor: pointer;
-  overflow: visible; /* Make letter visible when pulled out */
-  touch-action: manipulation;
-}
-
-.back {
-  position: relative;
-  width: 250px;
-  height: 200px;
-  background: #f4a6b3;
-}
-
-.front {
-  position: absolute;
-  border-right: 130px solid #f7b5c5;
-  border-top: 100px solid transparent;
-  border-bottom: 100px solid transparent;
-  height: 0;
-  width: 0;
-  top: 0;
-  left: 120px;
-  z-index: 3;
-}
-
-.front:before {
-  content: "";
-  position: absolute;
-  border-left: 130px solid #f7b5c5;
-  border-top: 100px solid transparent;
-  border-bottom: 100px solid transparent;
-  height: 0;
-  width: 0;
-  top: -100px;
-  left: -120px;
-}
-
-.front:after {
-  content: "";
-  position: absolute;
-  border-bottom: 105px solid #f9c5d5;
-  border-left: 125px solid transparent;
-  border-right: 125px solid transparent;
-  height: 0;
-  width: 0;
-  top: -5px;
-  left: -120px;
-}
-
-.top {
-  position: absolute;
-  border-top: 105px solid #f6b8c6;
-  border-left: 125px solid transparent;
-  border-right: 125px solid transparent;
-  height: 0;
-  width: 0;
-  top: 0;
-  transform-origin: top;
-  transition: 0.4s;
-  z-index: 4;
-}
-
-.letter {
-  position: absolute;
-  background: white;
-  width: 230px;
-  height: 180px;
-  top: 10px;
-  left: 10px;
-  transition: 0.4s ease;
-  z-index: 1;
-  will-change: transform;
-}
-
-.text {
-  text-align: center;
-  font-size: 11px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin-top: 20px;
-  font-weight: bold;
-  color: black;
-  position: relative;
-  top: -20px;
-  left: 20px;
-  z-index: 5;
-}
-
-.text a {
-  display: inline-block;
-  margin-top: 10px;
-  color: #e06c9f;
-  text-decoration: none;
-  font-weight: bold;
-  background: #ffe6ec;
-  padding: 5px 10px;
-  border-radius: 6px;
-  transition: background 0.3s ease;
-  position: relative;
-  z-index: 20;
-}
-
-.text a:hover {
-  background: #f4a6b3;
-}
-
-/* Hover interaction for desktop */
-.envelope:hover .top {
-  transform: rotateX(160deg);
-}
-
-.envelope:hover .letter {
-  transform: translateY(-220px);
-  z-index: 10;
-}
-
-/* Click/tap interaction for mobile */
-@media (max-width: 768px) {
-  .envelope:hover .top,
-  .envelope:hover .letter {
-    transform: none; /* Disable hover on mobile */
-  }
-
-  .envelope.open .top {
-    transform: rotateX(160deg);
-  }
-
-  .envelope.open .letter {
-    transform: translateY(-220px);
-    z-index: 10;
-  }
-}
-
-/* Heart decoration */
+/* Improved Heart */
 .heart {
-  background-color: #ff6b81;
-  height: 70px;
-  width: 70px;
   position: relative;
-  top: 20px;
-  left: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #ff6b81;
   transform: rotate(-45deg);
-  box-shadow: -5px 10px 90px #ff6b81;
-  animation: untoldcoding 0.8s linear infinite;
+  margin-bottom: 30px;
+  animation: heartbeat 1s infinite;
+  box-shadow: 0 0 20px #ff6b81;
 }
 
-@keyframes untoldcoding {
-  0% {
-    transform: rotate(-45deg) scale(1.05);
-  }
-  70% {
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: #ff6b81;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -30px;
+  left: 0;
+}
+
+.heart::after {
+  left: 30px;
+  top: 0;
+}
+
+@keyframes heartbeat {
+  0%, 100% {
     transform: rotate(-45deg) scale(1);
   }
-  100% {
-    transform: rotate(-45deg) scale(0.8);
+  50% {
+    transform: rotate(-45deg) scale(1.1);
   }
 }
 
-.heart:before,
-.heart:after {
-  content: "";
-  position: absolute;
-  height: 70px;
-  width: 70px;
-  background-color: #ff6b81;
-  border-radius: 50px;
+/* Letter Box */
+.letter {
+  background: #fff;
+  border: 2px solid #f4a6b3;
+  border-radius: 16px;
+  padding: 25px;
+  max-width: 90%;
+  width: 350px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #e06c9f;
 }
 
-.heart:before {
-  top: -40px;
+/* Button/Link */
+.letter a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  background: #ffe6ec;
+  color: #e06c9f;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
-.heart:after {
-  right: -40px;
+.letter a:hover {
+  background: #f4a6b3;
 }
