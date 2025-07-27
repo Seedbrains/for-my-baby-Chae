@@ -1,11 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background: #ffe6ec; /* Light pink background */
+  background: #ffe6ec;
   margin: 0;
+  font-family: sans-serif;
 }
 
 .text1 {
@@ -18,19 +25,20 @@ body {
 .envelope {
   position: relative;
   cursor: pointer;
-   overflow: visible;
+  overflow: visible; /* Make letter visible when pulled out */
+  touch-action: manipulation;
 }
 
 .back {
   position: relative;
   width: 250px;
   height: 200px;
-  background: #f4a6b3; /* Soft medium pink */
+  background: #f4a6b3;
 }
 
 .front {
   position: absolute;
-  border-right: 130px solid #f7b5c5; /* Lighter pink */
+  border-right: 130px solid #f7b5c5;
   border-top: 100px solid transparent;
   border-bottom: 100px solid transparent;
   height: 0;
@@ -55,7 +63,7 @@ body {
 .front:after {
   content: "";
   position: absolute;
-  border-bottom: 105px solid #f9c5d5; /* Lightest pink */
+  border-bottom: 105px solid #f9c5d5;
   border-left: 125px solid transparent;
   border-right: 125px solid transparent;
   height: 0;
@@ -74,10 +82,7 @@ body {
   top: 0;
   transform-origin: top;
   transition: 0.4s;
-}
-
-.envelope:hover .top {
-  transform: rotateX(160deg);
+  z-index: 4;
 }
 
 .letter {
@@ -88,13 +93,8 @@ body {
   top: 10px;
   left: 10px;
   transition: 0.4s ease;
-  z-index: 2;
-   will-change: transform;
-}
-
-.envelope:hover .letter {
-  transform: translateY(-220px); /* Fully pulls out */
-  z-index: 4;
+  z-index: 1;
+  will-change: transform;
 }
 
 .text {
@@ -120,16 +120,42 @@ body {
   padding: 5px 10px;
   border-radius: 6px;
   transition: background 0.3s ease;
-   position: relative;
+  position: relative;
   z-index: 20;
-  
 }
 
 .text a:hover {
   background: #f4a6b3;
 }
 
-/*---heart -----*/
+/* Hover interaction for desktop */
+.envelope:hover .top {
+  transform: rotateX(160deg);
+}
+
+.envelope:hover .letter {
+  transform: translateY(-220px);
+  z-index: 10;
+}
+
+/* Click/tap interaction for mobile */
+@media (max-width: 768px) {
+  .envelope:hover .top,
+  .envelope:hover .letter {
+    transform: none; /* Disable hover on mobile */
+  }
+
+  .envelope.open .top {
+    transform: rotateX(160deg);
+  }
+
+  .envelope.open .letter {
+    transform: translateY(-220px);
+    z-index: 10;
+  }
+}
+
+/* Heart decoration */
 .heart {
   background-color: #ff6b81;
   height: 70px;
