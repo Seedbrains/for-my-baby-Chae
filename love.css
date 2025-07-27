@@ -4,36 +4,36 @@
   padding: 0;
 }
 
-body {
-  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+html, body {
+  height: 100%;
   font-family: 'Courier New', Courier, monospace;
-  overflow-x: hidden;
-  padding: 10px;
+  background: linear-gradient(to bottom, #ff9a9e, #fad0c4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
 }
 
 .letter-container {
-  width: 100%;
-  max-width: 500px;
-  margin: 5vh auto;
-  padding: 20px;
+  width: 90%;
+  max-width: 700px;
+  padding: 40px;
   background: rgba(255, 255, 255, 0.95);
-  border-radius: 16px;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   color: #d6336c;
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
   position: relative;
   z-index: 1;
 }
 
 .typed-text {
   white-space: pre-wrap;
-  border-right: 2px solid #d6336c;
+  border-right: 3px solid #d6336c;
   animation: blink 0.8s infinite;
-  min-height: 120px;
+  min-height: 200px;
 }
 
 @keyframes blink {
@@ -41,14 +41,14 @@ body {
   50% { border-color: #d6336c; }
 }
 
-/* Floating Hearts */
+/* ❤️ Floating Hearts */
 .heart {
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   background: red;
   transform: rotate(45deg);
-  animation: floatHearts 6s infinite;
+  animation: floatHearts 8s infinite ease-in-out;
   z-index: 0;
 }
 
@@ -56,94 +56,33 @@ body {
 .heart::after {
   content: "";
   position: absolute;
-  width: 14px;
-  height: 14px;
+  width: 20px;
+  height: 20px;
   background: red;
   border-radius: 50%;
 }
 
 .heart::before {
-  top: -7px;
+  top: -10px;
   left: 0;
 }
 
 .heart::after {
-  left: -7px;
+  left: -10px;
   top: 0;
 }
 
 @keyframes floatHearts {
   0% {
-    transform: translateY(0) rotate(45deg) scale(1);
+    transform: translateY(0) rotate(45deg);
     opacity: 1;
   }
+  50% {
+    transform: translateY(-50vh) rotate(45deg);
+    opacity: 0.7;
+  }
   100% {
-    transform: translateY(-100vh) rotate(45deg) scale(1.4);
+    transform: translateY(-100vh) rotate(45deg);
     opacity: 0;
-  }
-}
-
-/* Tablet and Small Desktop Enhancements */
-@media (min-width: 600px) {
-  .letter-container {
-    padding: 30px;
-    font-size: 1.1rem;
-    line-height: 1.7;
-  }
-
-  .typed-text {
-    min-height: 160px;
-  }
-
-  .heart {
-    width: 18px;
-    height: 18px;
-  }
-
-  .heart::before,
-  .heart::after {
-    width: 18px;
-    height: 18px;
-  }
-
-  .heart::before {
-    top: -9px;
-  }
-
-  .heart::after {
-    left: -9px;
-  }
-}
-
-/* Desktop Enhancements */
-@media (min-width: 900px) {
-  .letter-container {
-    padding: 40px;
-    font-size: 1.2rem;
-    line-height: 1.8;
-    border-radius: 20px;
-  }
-
-  .typed-text {
-    min-height: 200px;
-  }
-
-  .heart {
-    width: 20px;
-    height: 20px;
-  }
-
-  .heart::before,
-  .heart::after {
-    width: 20px;
-    height: 20px;
-  }
-
-  .heart::before {
-    top: -10px;
-  }
-
-  .heart::after {
-    left: -10px;
   }
 }
