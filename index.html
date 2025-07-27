@@ -1,5 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+  function toggleLetter(el) {
+    // Only activate on small screens
+    if (window.innerWidth <= 768) {
+      el.classList.toggle('open');
+    }
+  }
+</script>
+
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -16,6 +25,8 @@
       <div class="letter">
         <div class="heart"></div>
         <div class="text">
+		<div class="envelope" onclick="toggleLetter(this)">
+
           <p>
             I wanted to write <br />
             you a letter for <br />
