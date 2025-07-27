@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Love Letter for Baby</title>
+  <link rel="stylesheet" href="love.css">
+</head>
+<body>
+
+  <div class="letter-container">
+    <div class="typed-text"></div>
+  </div>
+
+  <script>
+    const message = `HIII MY BABYYYY!!!!
+this might seem a bit unusual compared to the handwritten ones that I have sent you, I'm sorry I couldn't give you anything this month for our monthsary but instead of just sitting and saying oh sorry I don't have anything for you today, I made this letter for you.
+
+I know we've been having some rough days and slow ones too but I'd rather have those than not having you at all. I love you with all my heart babyy and I'll continue to do so as long as I breath(so corny but yes). I hope the coming months will be more nicer to us, no more of those stuff testing your patience for some reason on some random days and I hope you continue to love me despite it all. 
+
+I love you so much baby, I can't wait to go back and cuddle all day long with you MWAAMWAAA!!!
+
+-Your broke ass boyfriend(for now), Cyd`;
+
+    const typedTextElement = document.querySelector('.typed-text');
+    let index = 0;
+
+    function typeLetter() {
+      if (index < message.length) {
+        typedTextElement.innerHTML += message.charAt(index).replace(/\n/g, "<br>");
+        index++;
+        setTimeout(typeLetter, 30);
+      }
+    }
+
+    typeLetter();
+
+    for (let i = 0; i < 30; i++) {
+      let heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+      heart.style.opacity = Math.random();
+      heart.style.transform = `scale(${0.5 + Math.random()}) rotate(45deg)`;
+      document.body.appendChild(heart);
+    }
+  </script>
+
+</body>
+</html>
