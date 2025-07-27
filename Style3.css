@@ -18,6 +18,7 @@ body {
 .envelope {
   position: relative;
   cursor: pointer;
+   overflow: visible;
 }
 
 .back {
@@ -87,7 +88,8 @@ body {
   top: 10px;
   left: 10px;
   transition: 0.4s ease;
-  z-index: 1;
+  z-index: 2;
+   will-change: transform;
 }
 
 .envelope:hover .letter {
@@ -118,6 +120,9 @@ body {
   padding: 5px 10px;
   border-radius: 6px;
   transition: background 0.3s ease;
+   position: relative;
+  z-index: 20;
+  
 }
 
 .text a:hover {
